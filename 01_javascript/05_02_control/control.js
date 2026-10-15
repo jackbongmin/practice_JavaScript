@@ -11,7 +11,13 @@
 // ==========================================
 console.log('=== 1단계: 학점 계산기 ===');
 // TODO: 여기에 코드를 작성하세요.
-
+function getGrade(score) {
+  if (score >= 90) return 'A';
+  else if (score >= 80) return 'B';
+  else if (score >= 70) return 'C';
+  else if (score >= 60) return 'D';
+  else return 'F';
+}
 
 // ==========================================
 // 2단계: 반복문으로 누적 합과 짝수만 더하기
@@ -33,3 +39,9 @@ console.log('\n=== 2단계: for 문과 continue/break ===');
 console.log('\n=== 3단계: 함수 분리, 콜백, 삼항/null병합 연산자 ===');
 // TODO: 여기에 코드를 작성하세요.
 
+function printGrade(name, score, callback) {
+    const grade = getGrade(score);
+    callback(name, grade);
+}
+
+printGrade("종민", 85, (n, g) => console.log(`[통지표] ${n} 학생의 등급은 ${g}입니다.`));
